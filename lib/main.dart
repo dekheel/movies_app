@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:another_flutter_splash_screen/another_flutter_splash_screen.dart';
-import 'package:movies_app/Myhomepage.dart';
-
+import 'package:movies_app/My_theme/my_theme.dart';
+import 'package:movies_app/home_screen.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+
   runApp(const MyApp());
 }
 
@@ -14,16 +15,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: FlutterSplashScreen.fadeIn(
-        backgroundImage:  const Image(image: AssetImage("assets/images/splash_screen.jpg")),
-    duration: Duration(seconds: 10),
-    childWidget: SizedBox(),
-    onAnimationEnd: () => debugPrint("On Fade In End"),
-    nextScreen: Myhomepage(),
-        ),
+      initialRoute: HomeScreen.routeName,
+      routes: {HomeScreen.routeName: (context) => const HomeScreen()},
+      debugShowCheckedModeBanner: false,
+      theme: MyTheme.lightTheme,
     );
   }
 }
-
-
