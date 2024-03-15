@@ -8,6 +8,8 @@ class MyTheme {
   static Color whiteColor = const Color(0xffffffff);
   static Color yellowColor = const Color(0xffFFBB3B);
   static Color lightGreyColor = const Color(0xffC6C6C6);
+  static Color redColor = const Color(0xffc7024c);
+
   static Color bottomNavigationBackgroundColor = const Color(0xff1A1A1A);
 
   static ThemeData lightTheme = ThemeData(

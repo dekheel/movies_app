@@ -18,7 +18,7 @@ class GeneralResponse {
   List<Movie>? results;
   int? totalPages;
   int? totalResults;
-  String? statusCode;
+  int? statusCode;
   String? statusMessage;
   String? success;
   Dates? dates;
@@ -35,6 +35,9 @@ class GeneralResponse {
     }
     totalPages = json['total_pages'];
     totalResults = json['total_results'];
+    statusCode = json['status_code'];
+    statusMessage = json['status_message'];
+    success = json['success'];
   }
 
   Map<String, dynamic> toJson() {
@@ -49,9 +52,6 @@ class GeneralResponse {
     }
     map['total_pages'] = totalPages;
     map['total_results'] = totalResults;
-    map['status_code'] = statusCode;
-    map['status_message'] = statusMessage;
-    map['success'] = success;
 
     return map;
   }
@@ -119,7 +119,7 @@ class Movie {
   String? releaseDate;
   String? title;
   bool? video;
-  int? voteAverage;
+  double? voteAverage;
   int? voteCount;
 
   Map<String, dynamic> toJson() {

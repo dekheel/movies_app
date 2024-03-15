@@ -10,7 +10,7 @@ class ApiManager {
   // get categories from api
   static Future<CategoryResponse> getCategoryResponse() async {
     Uri url = Uri.https(ApiConstants.baseurl, ApiConstants.categoriesApi, {
-      "apiKey": ApiConstants.apiKey,
+      "api_key": ApiConstants.api_key,
     });
     try {
       var response = await http.get(url);
@@ -25,13 +25,14 @@ class ApiManager {
   // get popular movies from api
   static Future<GeneralResponse> getPopularMoviesResponse(String pageNo) async {
     Uri url = Uri.https(ApiConstants.baseurl, ApiConstants.popularMovieApi,
-        {"apiKey": ApiConstants.apiKey, "language": "en-US", "page": pageNo});
+        {"api_key": ApiConstants.api_key, "language": "en-US", "page": pageNo});
     try {
       var response = await http.get(url);
       var responseBody = response.body;
       var json = jsonDecode(responseBody);
       return GeneralResponse.fromJson(json);
     } catch (e) {
+      print(e);
       rethrow;
     }
   }
@@ -40,7 +41,7 @@ class ApiManager {
   static Future<GeneralResponse> getUpComingMoviesResponse(
       String pageNo) async {
     Uri url = Uri.https(ApiConstants.baseurl, ApiConstants.upComingMovieApi,
-        {"apiKey": ApiConstants.apiKey, "language": "en-US", "page": pageNo});
+        {"api_key": ApiConstants.api_key, "language": "en-US", "page": pageNo});
     try {
       var response = await http.get(url);
       var responseBody = response.body;
@@ -55,7 +56,7 @@ class ApiManager {
   static Future<GeneralResponse> getTopRatedMoviesResponse(
       String pageNo) async {
     Uri url = Uri.https(ApiConstants.baseurl, ApiConstants.topRatedMovieApi,
-        {"apiKey": ApiConstants.apiKey, "language": "en-US", "page": pageNo});
+        {"api_key": ApiConstants.api_key, "language": "en-US", "page": pageNo});
     try {
       var response = await http.get(url);
       var responseBody = response.body;
@@ -71,7 +72,7 @@ class ApiManager {
       String movie_id) async {
     Uri url =
         Uri.https(ApiConstants.baseurl, ApiConstants.detailMovieApi(movie_id), {
-      "apiKey": ApiConstants.apiKey,
+      "api_key": ApiConstants.api_key,
       "language": "en-US",
     });
     try {
@@ -90,7 +91,7 @@ class ApiManager {
     Uri url = Uri.https(
         ApiConstants.baseurl,
         ApiConstants.similarMovieApi(movie_id),
-        {"apiKey": ApiConstants.apiKey, "language": "en-US", "page": pageNo});
+        {"api_key": ApiConstants.api_key, "language": "en-US", "page": pageNo});
     try {
       var response = await http.get(url);
       var responseBody = response.body;
@@ -104,7 +105,7 @@ class ApiManager {
   // search movies from api
   static Future<GeneralResponse> searchMovieResponse(String movieTitle) async {
     Uri url = Uri.https(ApiConstants.baseurl, ApiConstants.searchMovieApi,
-        {"apiKey": ApiConstants.apiKey, "query": movieTitle});
+        {"api_key": ApiConstants.api_key, "query": movieTitle});
     try {
       var response = await http.get(url);
       var responseBody = response.body;
@@ -120,7 +121,7 @@ class ApiManager {
       String pageNo, String categoryId) async {
     Uri url = Uri.https(
         ApiConstants.baseurl, ApiConstants.discoverMoviesByCategoryApi, {
-      "apiKey": ApiConstants.apiKey,
+      "api_key": ApiConstants.api_key,
       "page": pageNo,
       "with_genres": categoryId,
       "sort_by": "popularity.desc",
