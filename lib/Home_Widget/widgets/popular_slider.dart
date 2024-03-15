@@ -1,18 +1,14 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:movies_app/Home_Widget/widgets/movie_item.dart';
 import 'package:movies_app/My_theme/my_theme.dart';
-import 'package:movies_app/api/api_constatnts.dart';
 import 'package:movies_app/api/api_manager.dart';
 import 'package:movies_app/models/general_response.dart';
 
 class PopularSlider extends StatefulWidget {
   const PopularSlider({
     super.key,
-    required this.screenSize,
   });
-
-  final Size screenSize;
 
   @override
   State<PopularSlider> createState() => _PopularSliderState();
@@ -21,9 +17,11 @@ class PopularSlider extends StatefulWidget {
 class _PopularSliderState extends State<PopularSlider> {
   @override
   Widget build(BuildContext context) {
+    Size screenSize = MediaQuery.of(context).size;
+
     return SizedBox(
       width: double.infinity,
-      height: widget.screenSize.height * .35,
+      height: screenSize.height * .35,
       child: FutureBuilder<GeneralResponse>(
           future: ApiManager.getPopularMoviesResponse("1"),
           builder: (context, snapshot) {
@@ -87,34 +85,17 @@ class _PopularSliderState extends State<PopularSlider> {
             return CarouselSlider.builder(
                 itemCount: results?.length,
                 itemBuilder: (context, index, realIndex) {
-                  return SizedBox(
-                    height: widget.screenSize.height * .35,
-                    width: widget.screenSize.width * .70,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(15),
-                      clipBehavior: Clip.antiAliasWithSaveLayer,
-                      child: CachedNetworkImage(
-                        width: double.infinity,
-                        height: MediaQuery.of(context).size.height * .25,
-                        fit: BoxFit.fill,
-                        imageUrl:
-                            "${ApiConstants.baseImageUrl}${results?[index].posterPath}",
-                        placeholder: (context, url) => Center(
-                          child: CircularProgressIndicator(
-                            color: MyTheme.yellowColor,
-                          ),
-                        ),
-                        errorWidget: (context, url, error) => Icon(
-                          Icons.error,
-                          color: MyTheme.redColor,
-                        ),
-                      ),
-                    ),
+                  return MovieItem(
+                    iconSize: 70,
+                    height: screenSize.height * .65,
+                    width: screenSize.width * .70,
+                    movie: results?[index],
+                    onPressedBookmarkIcon: onPressedBookmarkIcon,
                   );
                 },
                 options: CarouselOptions(
                     autoPlay: true,
-                    height: widget.screenSize.height * .35,
+                    height: screenSize.height * .35,
                     enlargeCenterPage: true,
                     pageSnapping: true,
                     viewportFraction: 0.55,
@@ -122,5 +103,13 @@ class _PopularSliderState extends State<PopularSlider> {
                     autoPlayAnimationDuration: const Duration(seconds: 1)));
           }),
     );
+  }
+
+  onPressedBookmarkIcon(Movie movie) {
+    // loading
+
+    // add to firestore
+
+    // toast message
   }
 }

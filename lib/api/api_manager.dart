@@ -68,8 +68,7 @@ class ApiManager {
   }
 
   // get detail movie from api
-  static Future<MovieDetailResponse> detailMoviesResponse(
-      String movie_id) async {
+  static Future<MovieDetailResponse> detailMoviesResponse(int movie_id) async {
     Uri url =
         Uri.https(ApiConstants.baseurl, ApiConstants.detailMovieApi(movie_id), {
       "api_key": ApiConstants.api_key,

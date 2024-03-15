@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:movies_app/Home_Widget/popular_slider.dart';
+import 'package:movies_app/Home_Widget/widgets/new_release.dart';
+import 'package:movies_app/Home_Widget/widgets/popular_slider.dart';
+import 'package:movies_app/Home_Widget/widgets/recommended.dart';
 
 class HomeWidget extends StatelessWidget {
   const HomeWidget({super.key});
@@ -7,15 +9,14 @@ class HomeWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
-    return SafeArea(
+    return const SafeArea(
       child: SingleChildScrollView(
-        padding: const EdgeInsets.all(10),
-        physics: const BouncingScrollPhysics(),
+        padding: EdgeInsets.all(5),
+        physics: BouncingScrollPhysics(),
         child: Column(
-          children: [PopularSlider(screenSize: screenSize)],
+          children: [PopularSlider(), NewRelease(), Recommended()],
         ),
       ),
     );
   }
 }
-

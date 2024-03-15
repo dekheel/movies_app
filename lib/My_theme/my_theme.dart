@@ -4,7 +4,7 @@ class MyTheme {
   // colors , light theme , dark theme , text theme
 
   static Color blackColor = const Color(0xff121312);
-  static Color greyColor = const Color(0xff707070);
+  static Color greyColor = const Color(0xff282A28);
   static Color whiteColor = const Color(0xffffffff);
   static Color yellowColor = const Color(0xffFFBB3B);
   static Color lightGreyColor = const Color(0xffC6C6C6);
@@ -13,6 +13,7 @@ class MyTheme {
   static Color bottomNavigationBackgroundColor = const Color(0xff1A1A1A);
 
   static ThemeData lightTheme = ThemeData(
+      cardColor: const Color(0xff343534),
       primaryColor: yellowColor,
       scaffoldBackgroundColor: blackColor,
       appBarTheme: AppBarTheme(

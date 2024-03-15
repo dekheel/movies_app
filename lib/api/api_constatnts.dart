@@ -7,7 +7,7 @@ class ApiConstants {
   static const String upComingMovieApi = "/3/movie/upcoming";
   static const String topRatedMovieApi = "/3/movie/top_rated";
 
-  static String detailMovieApi(String movieId) {
+  static String detailMovieApi(int movieId) {
     return "/3/movie/$movieId";
   }
 
