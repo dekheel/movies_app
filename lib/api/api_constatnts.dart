@@ -13,7 +13,7 @@ class ApiConstants {
 
   static const String searchMovieApi = "/3/search/movie";
 
-  static String similarMovieApi(String movieId) {
+  static String similarMovieApi(int movieId) {
     return "/3/movie/$movieId/similar";
   }
 

@@ -1,9 +1,9 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:movies_app/Home_Widget/widgets/movie_item.dart';
 import 'package:movies_app/My_theme/my_theme.dart';
 import 'package:movies_app/api/api_manager.dart';
 import 'package:movies_app/models/general_response.dart';
+import 'package:movies_app/screens/home_screen/Home_Widget/widgets/movie_item.dart';
 
 class PopularSlider extends StatefulWidget {
   const PopularSlider({

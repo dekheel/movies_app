@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/My_theme/my_theme.dart';
-import 'package:movies_app/home_screen.dart';
+import 'package:movies_app/screens/details_screen/detail_movie_screen.dart';
+import 'package:movies_app/screens/home_screen/home_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,7 +17,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       initialRoute: HomeScreen.routeName,
-      routes: {HomeScreen.routeName: (context) => const HomeScreen()},
+      routes: {
+        HomeScreen.routeName: (context) => const HomeScreen(),
+        DetailsScreen.routeName: (context) => const DetailsScreen()
+      },
       debugShowCheckedModeBanner: false,
       theme: MyTheme.lightTheme,
     );

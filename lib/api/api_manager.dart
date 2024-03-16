@@ -86,7 +86,7 @@ class ApiManager {
 
   // get similar movies from api
   static Future<GeneralResponse> getSimilarMoviesResponse(
-      String movie_id, String pageNo) async {
+      int movie_id, String pageNo) async {
     Uri url = Uri.https(
         ApiConstants.baseurl,
         ApiConstants.similarMovieApi(movie_id),

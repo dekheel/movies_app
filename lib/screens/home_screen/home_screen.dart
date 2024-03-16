@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:movies_app/Browse_Widget/browse_widget.dart';
-import 'package:movies_app/Home_Widget/home_widget.dart';
 import 'package:movies_app/My_theme/my_theme.dart';
-import 'package:movies_app/Search_Widget/search_widget.dart';
-import 'package:movies_app/Watch_List_Widget/watch_list_widget.dart';
+import 'package:movies_app/screens/home_screen/Browse_Widget/browse_widget.dart';
+import 'package:movies_app/screens/home_screen/Home_Widget/home_widget.dart';
+import 'package:movies_app/screens/home_screen/Search_Widget/search_widget.dart';
+import 'package:movies_app/screens/home_screen/Watch_List_Widget/watch_list_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = 'home_Screen';
