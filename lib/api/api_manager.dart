@@ -5,6 +5,7 @@ import 'package:movies_app/api/api_constatnts.dart';
 import 'package:movies_app/models/category_response.dart';
 import 'package:movies_app/models/general_response.dart';
 import 'package:movies_app/models/movie_detail_response.dart';
+import 'package:movies_app/models/trailer_response.dart';
 
 class ApiManager {
   // get categories from api
@@ -131,6 +132,23 @@ class ApiManager {
       var responseBody = response.body;
       var json = jsonDecode(responseBody);
       return GeneralResponse.fromJson(json);
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  // get detail movie from api
+  static Future<TrailerResponse> youtubeMoviesResponse(int movie_id) async {
+    Uri url = Uri.https(
+        ApiConstants.baseurl, ApiConstants.youtubeMovieApi(movie_id), {
+      "api_key": ApiConstants.api_key,
+      "language": "en-US",
+    });
+    try {
+      var response = await http.get(url);
+      var responseBody = response.body;
+      var json = jsonDecode(responseBody);
+      return TrailerResponse.fromJson(json);
     } catch (e) {
       rethrow;
     }

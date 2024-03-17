@@ -6,6 +6,7 @@ class ApiConstants {
   static const String popularMovieApi = "/3/movie/popular";
   static const String upComingMovieApi = "/3/movie/upcoming";
   static const String topRatedMovieApi = "/3/movie/top_rated";
+  static const String youtubeBaseurl = "https://www.youtube.com/watch?v=";
 
   static String detailMovieApi(int movieId) {
     return "/3/movie/$movieId";
@@ -15,6 +16,10 @@ class ApiConstants {
 
   static String similarMovieApi(int movieId) {
     return "/3/movie/$movieId/similar";
+  }
+
+  static String youtubeMovieApi(int movieId) {
+    return "/3/movie/$movieId/videos";
   }
 
   static const String discoverMoviesByCategoryApi = "3/discover/movie";
