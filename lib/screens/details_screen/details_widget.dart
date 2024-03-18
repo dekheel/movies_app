@@ -1,7 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:movies_app/Methods/methods.dart';
 import 'package:movies_app/My_theme/my_theme.dart';
+import 'package:movies_app/Utils/methods.dart';
 import 'package:movies_app/api/api_manager.dart';
 import 'package:movies_app/models/general_response.dart';
 import 'package:movies_app/models/movie_detail_response.dart';

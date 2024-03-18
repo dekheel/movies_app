@@ -11,12 +11,12 @@ class CategoryResponse {
     if (json['genres'] != null) {
       genres = [];
       json['genres'].forEach((v) {
-        genres?.add(Genres.fromJson(v));
+        genres?.add(Genre.fromJson(v));
       });
     }
   }
 
-  List<Genres>? genres;
+  List<Genre>? genres;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};

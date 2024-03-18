@@ -118,7 +118,7 @@ class ApiManager {
 
   // search movies from api
   static Future<GeneralResponse> discoverMovieByCategoryResponse(
-      String pageNo, String categoryId) async {
+      {required String pageNo, required String categoryId}) async {
     Uri url = Uri.https(
         ApiConstants.baseurl, ApiConstants.discoverMoviesByCategoryApi, {
       "api_key": ApiConstants.api_key,

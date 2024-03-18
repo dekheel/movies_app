@@ -64,7 +64,7 @@ class MovieDetailResponse {
     if (json['genres'] != null) {
       genres = [];
       json['genres'].forEach((v) {
-        genres?.add(Genres.fromJson(v));
+        genres?.add(Genre.fromJson(v));
       });
     }
     homepage = json['homepage'];
@@ -108,7 +108,7 @@ class MovieDetailResponse {
   String? backdropPath;
   dynamic belongsToCollection;
   int? budget;
-  List<Genres>? genres;
+  List<Genre>? genres;
   String? homepage;
   int? id;
   String? imdbId;
@@ -272,10 +272,10 @@ class ProductionCompanies {
 /// id : 18
 /// name : "Drama"
 
-class Genres {
-  Genres({this.id, this.name, this.imageAssets});
+class Genre {
+  Genre({this.id, this.name, this.imageAssets});
 
-  Genres.fromJson(dynamic json) {
+  Genre.fromJson(dynamic json) {
     id = json['id'];
     name = json['name'];
     imageAssets = "assets/images/${json['name']}.png";
