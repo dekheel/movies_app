@@ -94,19 +94,21 @@ class _NewReleaseState extends State<NewRelease> {
 
                 // List<Movie>? movies = snapshot.data?.results;
                 return Expanded(
-                  child: ListView.builder(
-                    physics: const ScrollPhysics(),
-                    scrollDirection: Axis.horizontal,
-                    itemCount: results?.length,
-                    itemBuilder: (context, index) {
-                      return MovieItem(
-                        iconSize: 45,
-                        width: screenSize.width * .40,
-                        height: screenSize.height * .20,
-                        movie: results?[index],
-                        onPressedBookmarkIcon: onPressedBookmarkIcon,
-                      );
-                    },
+                  child: SizedBox(
+                    child: ListView.builder(
+                      physics: const ScrollPhysics(),
+                      scrollDirection: Axis.horizontal,
+                      itemCount: results?.length,
+                      itemBuilder: (context, index) {
+                        return MovieItem(
+                          iconSize: 45,
+                          width: screenSize.width * .40,
+                          height: screenSize.height * .20,
+                          movie: results?[index],
+                          onPressedBookmarkIcon: onPressedBookmarkIcon,
+                        );
+                      },
+                    ),
                   ),
                 );
               }),

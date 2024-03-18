@@ -1,7 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:movies_app/Methods/methods.dart';
 import 'package:movies_app/My_theme/my_theme.dart';
+import 'package:movies_app/Utils/firebase_utils.dart';
+import 'package:movies_app/Utils/methods.dart';
 import 'package:movies_app/api/api_constatnts.dart';
 import 'package:movies_app/api/api_manager.dart';
 import 'package:movies_app/models/general_response.dart';
@@ -34,6 +35,23 @@ class MovieItem extends StatefulWidget {
 class _MovieItemState extends State<MovieItem> {
   Color iconColor = MyTheme.greyColor.withOpacity(.70);
   IconData? icon = Icons.add;
+
+  checkinWatchList() async {
+    if (await FirebaseUtils.existMovieInFirestore(widget.movie!)) {
+      icon = Icons.check;
+      iconColor = MyTheme.yellowColor.withOpacity(.70);
+    } else {
+      icon = Icons.add;
+      iconColor = MyTheme.greyColor.withOpacity(.70);
+    }
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    checkinWatchList();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -97,9 +115,14 @@ class _MovieItemState extends State<MovieItem> {
                     onTap: () {
                       widget.onPressedBookmarkIcon(widget.movie);
                       if (icon == Icons.add) {
+                        FirebaseUtils.addMovieToFirestore(
+                            widget.movie!, context);
                         icon = Icons.check;
                         iconColor = MyTheme.yellowColor.withOpacity(.70);
                       } else {
+                        FirebaseUtils.deleteMovieFromFirebase(
+                            widget.movie!, context);
+
                         icon = Icons.add;
                         iconColor = MyTheme.greyColor.withOpacity(.70);
                       }
