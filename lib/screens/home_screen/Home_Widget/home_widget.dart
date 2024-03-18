@@ -12,10 +12,8 @@ class HomeWidget extends StatelessWidget {
       child: SingleChildScrollView(
         padding: EdgeInsets.all(5),
         physics: BouncingScrollPhysics(),
-        child: Expanded(
-          child: Column(
-            children: [PopularSlider(), NewRelease(), Recommended()],
-          ),
+        child: Column(
+          children: [PopularSlider(), NewRelease(), Recommended()],
         ),
       ),
     );
