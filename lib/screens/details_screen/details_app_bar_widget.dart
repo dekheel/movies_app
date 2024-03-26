@@ -106,7 +106,7 @@ class _DetailsAppBarState extends State<DetailsAppBar> {
                             icon: Icon(
                               Icons.play_circle,
                               size: 100,
-                              color: MyTheme.whiteColor.withOpacity(.5),
+                              color: MyTheme.whiteColor.withOpacity(.8),
                             )))
                     : const SizedBox.shrink()
               ],
